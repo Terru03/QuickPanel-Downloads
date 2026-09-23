@@ -292,3 +292,6 @@ finally {
     if (-not $resolved.StartsWith($prefix, [StringComparison]::OrdinalIgnoreCase)) { throw 'Unsafe test cleanup path.' }
     Remove-Item -LiteralPath $resolved -Recurse -Force
 }
+# Expected native failures are asserted above. Report success only after every
+# assertion and cleanup completed; GitHub's pwsh wrapper checks LASTEXITCODE.
+$global:LASTEXITCODE = 0
