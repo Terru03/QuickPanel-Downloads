@@ -1,0 +1,93 @@
+name: Build Quick Panel public package candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      download_base_url:
+        description: "Optional public base URL for updater assets"
+        required: false
+        default: ""
+      release_notes_url:
+        description: "Optional public release notes URL"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: pwsh
+
+jobs:
+  release:
+    name: Build and publish release package
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Run release gates
+        run: |
+          dotnet restore .\QuickPanel.sln
+          dotnet build .\QuickPanel.sln --configuration Release --no-restore
+          dotnet run --project .\tests\QuickPanel.Tests.csproj --configuration Release --no-build
+          .\tests\profile-data-safety.tests.ps1
+          .\tests\public-release-safety.tests.ps1
+          .\tests\capture-updater-evidence.tests.ps1
+          # Legacy private-repair fixtures are verified in the private history checkout.
+
+      - name: Resolve release metadata
+        id: meta
+        env:
+          INPUT_DOWNLOAD_BASE_URL: ${{ inputs.download_base_url }}
+          INPUT_RELEASE_NOTES_URL: ${{ inputs.release_notes_url }}
+        run: |
+          [xml]$props = Get-Content -LiteralPath ".\Directory.Build.props" -Raw
+          $version = [string]($props.Project.PropertyGroup.Version | Select-Object -First 1)
+          if ([string]::IsNullOrWhiteSpace($version)) {
+            throw "Directory.Build.props does not contain a Version value."
+          }
+
+          $downloadBaseUrl = $env:INPUT_DOWNLOAD_BASE_URL
+          if ([string]::IsNullOrWhiteSpace($downloadBaseUrl)) {
+            $downloadBaseUrl = "https://github.com/Terru03/QuickPanel-Downloads/releases/download/v$version"
+          }
+
+          $releaseNotesUrl = $env:INPUT_RELEASE_NOTES_URL
+          if ([string]::IsNullOrWhiteSpace($releaseNotesUrl)) {
+            $releaseNotesUrl = "https://github.com/Terru03/QuickPanel-Downloads/releases/tag/v$version"
+          }
+
+          "version=$version" >> $env:GITHUB_OUTPUT
+          "tag=v$version" >> $env:GITHUB_OUTPUT
+          "download_base_url=$downloadBaseUrl" >> $env:GITHUB_OUTPUT
+          "release_notes_url=$releaseNotesUrl" >> $env:GITHUB_OUTPUT
+
+      - name: Build release ZIP and manifest
+        env:
+          SIGNING_CERTIFICATE_THUMBPRINT: ${{ secrets.WINDOWS_SIGNING_CERTIFICATE_THUMBPRINT }}
+        run: |
+          .\scripts\publish-release.ps1 `
+            -Version "${{ steps.meta.outputs.version }}" `
+            -DownloadBaseUrl "${{ steps.meta.outputs.download_base_url }}" `
+            -ReleaseNotesUrl "${{ steps.meta.outputs.release_notes_url }}" `
+            -SigningCertificateThumbprint $env:SIGNING_CERTIFICATE_THUMBPRINT
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: QuickPanel-${{ steps.meta.outputs.version }}-candidate
+          path: |
+            artifacts/release/QuickPanel-${{ steps.meta.outputs.version }}-win-x64.zip
+            artifacts/release/version.json
+            artifacts/release/SHA256SUMS.txt
+          if-no-files-found: error

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Class="QuickPanel.Views.ExternalAppTabView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#0A0C11">
+  <Grid>
+    <Grid x:Name="HostContainer" />
+    <Border x:Name="DockOverlay" Background="{StaticResource PanelBackgroundBrush}">
+      <StackPanel Width="290" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Margin="0,0,0,10" HorizontalAlignment="Center" Orientation="Horizontal">
+          <Ellipse Width="8" Height="8" Margin="0,0,8,0" Fill="{StaticResource PanelAccentBrush}" VerticalAlignment="Center" />
+          <TextBlock x:Name="AppNameText" FontSize="15" FontWeight="SemiBold" Foreground="{StaticResource PanelTextBrush}" />
+        </StackPanel>
+        <TextBlock x:Name="StateText"
+                   Margin="0,0,0,7"
+                   TextAlignment="Center"
+                   FontSize="11"
+                   FontWeight="SemiBold"
+                   Foreground="{StaticResource PanelAccentBrush}"
+                   Text="Ready" />
+        <TextBlock x:Name="DockMessage"
+                   Margin="0,0,0,18"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   FontSize="12"
+                   Foreground="{StaticResource PanelMutedTextBrush}"
+                   Text="Ready to connect." />
+        <Button x:Name="DockButton"
+                AutomationProperties.Name="Connect application"
+                Height="34"
+                Padding="20,0"
+                HorizontalAlignment="Center"
+                FontSize="13"
+                Foreground="White"
+                Background="{StaticResource PanelAccentBrush}"
+                BorderBrush="{StaticResource PanelAccentBrush}"
+                BorderThickness="0"
+                Cursor="Hand"
+                ToolTip="Connect this application. Shift+click connects the last focused desktop window."
+                Style="{StaticResource PanelPressButtonStyle}"
+                Content="Connect"
+                Click="DockButton_Click">
+          <Button.Template>
+            <ControlTemplate TargetType="{x:Type Button}">
+              <Border x:Name="ButtonBorder" Background="{TemplateBinding Background}" CornerRadius="7">
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" />
+              </Border>
+              <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                  <Setter TargetName="ButtonBorder" Property="Background" Value="{StaticResource PanelAccentHoverBrush}" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                  <Setter Property="RenderTransform">
+                    <Setter.Value>
+                      <ScaleTransform ScaleX="0.96" ScaleY="0.96" />
+                    </Setter.Value>
+                  </Setter>
+                  <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                  <Setter TargetName="ButtonBorder" Property="Background" Value="#3A4254" />
+                  <Setter Property="Foreground" Value="#AEB8CC" />
+                  <Setter Property="Cursor" Value="Arrow" />
+                </Trigger>
+              </ControlTemplate.Triggers>
+            </ControlTemplate>
+          </Button.Template>
+        </Button>
+        <Expander Margin="0,14,0,0" HorizontalAlignment="Center" IsExpanded="False" Foreground="{StaticResource PanelMutedTextBrush}">
+          <Expander.Header>
+            <TextBlock FontSize="11" Foreground="{StaticResource PanelMutedTextBrush}" Text="Having trouble?" TextDecorations="Underline" Cursor="Hand" />
+          </Expander.Header>
+          <TextBlock Width="290"
+                     Margin="0,7,0,0"
+                     TextAlignment="Center"
+                     TextWrapping="Wrap"
+                     FontSize="11"
+                     Foreground="{StaticResource PanelMutedTextBrush}"
+                     Text="Focus the correct desktop window, return here, then Shift + click Retry. Elevated apps cannot connect to a normal Quick Panel process." />
+        </Expander>
+      </StackPanel>
+    </Border>
+  </Grid>
+</UserControl>

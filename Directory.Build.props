@@ -1,0 +1,15 @@
+<Project>
+  <!-- Replace the Windows-themed ContextMenu shell so the native white menu gutter cannot appear. -->
+  <PropertyGroup>
+    <Version>2.5.0</Version>
+    <AssemblyVersion>2.5.0.0</AssemblyVersion>
+    <FileVersion>2.5.0.0</FileVersion>
+    <InformationalVersion>2.5.0</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Company>Quick Panel</Company>
+    <Product>Quick Panel</Product>
+    <Authors>Quick Panel</Authors>
+    <DebugSymbols Condition="'$(Configuration)' == 'Release'">false</DebugSymbols>
+    <DebugType Condition="'$(Configuration)' == 'Release'">none</DebugType>
+  </PropertyGroup>
+</Project>

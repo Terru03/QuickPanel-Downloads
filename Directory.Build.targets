@@ -1,0 +1,6 @@
+<Project>
+  <ItemGroup>
+    <None Include="Assets\TabIcons\**\*.svg" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="Assets\AppLogo.png" Condition="Exists('Assets\AppLogo.png')" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

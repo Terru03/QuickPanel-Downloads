@@ -1,0 +1,25 @@
+bin/
+obj/
+artifacts/
+.vs/
+.idea/
+.worktrees/
+*.user
+*.suo
+*.pdb
+*.log
+
+# Local app state and browser data
+settings.json
+WebView2/
+User Data/
+logs/
+
+# Secrets and local environment files
+.env
+.env.*
+*.pem
+*.pfx
+*.key
+secrets.json
+appsettings.Local.json

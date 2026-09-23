@@ -1,0 +1,76 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="10.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuickPanel.Updater.Core\QuickPanel.Updater.Core.csproj" />
+    <ProjectReference Include="..\QuickPanel.Updater\QuickPanel.Updater.csproj">
+      <Aliases>updater</Aliases>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\external-apps.json" Link="external-apps.json" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Include="..\QuickPanel\Models\AiTab.cs" Link="AiTab.cs" />
+    <Compile Include="..\QuickPanel\Models\BrowserProfileDefinition.cs" Link="BrowserProfileDefinition.cs" />
+    <Compile Include="..\QuickPanel\Models\QuickToolsSettings.cs" Link="QuickToolsSettings.cs" />
+    <Compile Include="..\QuickPanel\Models\UserSettings.cs" Link="UserSettings.cs" />
+    <Compile Include="..\QuickPanel\Models\ExternalAppDefinition.cs" Link="ExternalAppDefinition.cs" />
+    <Compile Include="..\QuickPanel\Models\ExternalAppWindowCandidate.cs" Link="ExternalAppWindowCandidate.cs" />
+    <Compile Include="..\QuickPanel\Services\BrowserViewportLayout.cs" Link="BrowserViewportLayout.cs" />
+    <Compile Include="..\QuickPanel\Services\BrowserProfilePolicy.cs" Link="BrowserProfilePolicy.cs" />
+    <Compile Include="..\QuickPanel\Services\BrowserProfileRegistryService.cs" Link="BrowserProfileRegistryService.cs" />
+    <Compile Include="..\QuickPanel\Services\ClosedTabHistory.cs" Link="ClosedTabHistory.cs" />
+    <Compile Include="..\QuickPanel\Services\FocusPolicy.cs" Link="FocusPolicy.cs" />
+    <Compile Include="..\QuickPanel\Services\ExternalAppRegistry.cs" Link="ExternalAppRegistry.cs" />
+    <Compile Include="..\QuickPanel\Services\ExternalAppLifecycle.cs" Link="ExternalAppLifecycle.cs" />
+    <Compile Include="..\QuickPanel\Services\ExternalAppDefinitionFactory.cs" Link="ExternalAppDefinitionFactory.cs" />
+    <Compile Include="..\QuickPanel\Services\ExternalAppInstalledApp.cs" Link="ExternalAppInstalledApp.cs" />
+    <Compile Include="..\QuickPanel\Services\ExternalAppIconCandidateResolver.cs" Link="ExternalAppIconCandidateResolver.cs" />
+    <Compile Include="..\QuickPanel\Services\ExternalAppStartTargetMatcher.cs" Link="ExternalAppStartTargetMatcher.cs" />
+    <Compile Include="..\QuickPanel\Services\ExternalAppWindowPickerPolicy.cs" Link="ExternalAppWindowPickerPolicy.cs" />
+    <Compile Include="..\QuickPanel\Services\ExternalAppWindowMatcher.cs" Link="ExternalAppWindowMatcher.cs" />
+    <Compile Include="..\QuickPanel\Services\TaskManagerProcessService.cs" Link="TaskManagerProcessService.cs" />
+    <Compile Include="..\QuickPanel\Services\TaskManagerProcessListPolicy.cs" Link="TaskManagerProcessListPolicy.cs" />
+    <Compile Include="..\QuickPanel\Services\TaskManagerPresentationPolicy.cs" Link="TaskManagerPresentationPolicy.cs" />
+    <Compile Include="..\QuickPanel\Services\PanelResizePolicy.cs" Link="PanelResizePolicy.cs" />
+    <Compile Include="..\QuickPanel\Services\TelemetryHistorySeries.cs" Link="TelemetryHistorySeries.cs" />
+    <Compile Include="..\QuickPanel\Services\NativePanelIconCatalog.cs" Link="NativePanelIconCatalog.cs" />
+    <Compile Include="..\QuickPanel\Services\CodexUsageService.cs" Link="CodexUsageService.cs" />
+    <Compile Include="..\QuickPanel\Services\DiagnosticPrivacy.cs" Link="DiagnosticPrivacy.cs" />
+    <Compile Include="..\QuickPanel\Services\LogService.cs" Link="LogService.cs" />
+    <Compile Include="..\QuickPanel\Services\PanelShortcutResolver.cs" Link="PanelShortcutResolver.cs" />
+    <Compile Include="..\QuickPanel\Services\PhysicalDirectoryResolver.cs" Link="PhysicalDirectoryResolver.cs" />
+    <Compile Include="..\QuickPanel\Services\PortableDataPaths.cs" Link="PortableDataPaths.cs" />
+    <Compile Include="..\QuickPanel\Services\ProfileMigrationModels.cs" Link="ProfileMigrationModels.cs" />
+    <Compile Include="..\QuickPanel\Services\ProfileMigrationProcessGuard.cs" Link="ProfileMigrationProcessGuard.cs" />
+    <Compile Include="..\QuickPanel\Services\ProfileMigrationService.cs" Link="ProfileMigrationService.cs" />
+    <Compile Include="..\QuickPanel\Services\PortableUpdateInstaller.cs" Link="PortableUpdateInstaller.cs" />
+    <Compile Include="..\QuickPanel\Services\PortableUpdateDiagnostics.cs" Link="PortableUpdateDiagnostics.cs" />
+    <Compile Include="..\QuickPanel\Services\PortableUpdateRollback.cs" Link="PortableUpdateRollback.cs" />
+    <Compile Include="..\QuickPanel\Services\RollbackAvailabilityService.cs" Link="RollbackAvailabilityService.cs" />
+    <Compile Include="..\QuickPanel\Services\PortableUpdateWorker.cs" Link="PortableUpdateWorker.cs" />
+    <Compile Include="..\QuickPanel\Services\PortableUpdatePathSafety.cs" Link="PortableUpdatePathSafety.cs" />
+    <Compile Include="..\QuickPanel\Services\ReleasePayloadPolicy.cs" Link="ReleasePayloadPolicy.cs" />
+    <Compile Include="..\QuickPanel\Services\ShellExplorerLocationService.cs" Link="ShellExplorerLocationService.cs" />
+    <Compile Include="..\QuickPanel\Services\RendererReadinessGate.cs" Link="RendererReadinessGate.cs" />
+    <Compile Include="..\QuickPanel\Services\SettingsService.cs" Link="SettingsService.cs" />
+    <Compile Include="..\QuickPanel\Services\StartupService.cs" Link="StartupService.cs" />
+    <Compile Include="..\QuickPanel\Services\TabContextMenuState.cs" Link="TabContextMenuState.cs" />
+    <Compile Include="..\QuickPanel\Services\TabIconResolver.cs" Link="TabIconResolver.cs" />
+    <Compile Include="..\QuickPanel\Services\WebsiteIconCache.cs" Link="WebsiteIconCache.cs" />
+    <Compile Include="..\QuickPanel\Services\TripPlannerCalculator.cs" Link="TripPlannerCalculator.cs" />
+    <Compile Include="..\QuickPanel\Services\LegacyUpdateInstallResolver.cs" Link="LegacyUpdateInstallResolver.cs" />
+    <Compile Include="..\QuickPanel\Services\UpdaterBootstrap.cs" Link="UpdaterBootstrap.cs" />
+    <Compile Include="..\QuickPanel\Services\UpdateRecoveryService.cs" Link="UpdateRecoveryService.cs" />
+    <Compile Include="..\QuickPanel\Services\UpdateOutcomeService.cs" Link="UpdateOutcomeService.cs" />
+    <Compile Include="..\QuickPanel\Services\UpdateService.cs" Link="UpdateService.cs" />
+    <Compile Include="..\QuickPanel\Services\UpdatePresentation.cs" Link="UpdatePresentation.cs" />
+    <Compile Include="..\--z__ReadOnlyArray.cs" Link="ReadOnlyArray.cs" />
+  </ItemGroup>
+</Project>

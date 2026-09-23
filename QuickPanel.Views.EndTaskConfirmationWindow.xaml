@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="QuickPanel.Views.EndTaskConfirmationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="End task?"
+        Width="408"
+        SizeToContent="Height"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True"
+        Background="{StaticResource PanelChromeBrush}"
+        Foreground="{StaticResource PanelTextBrush}"
+        ShowInTaskbar="False"
+        Loaded="Window_Loaded"
+        PreviewKeyDown="Window_PreviewKeyDown">
+  <Window.Resources>
+    <Style x:Key="EndTaskDialogButtonStyle" TargetType="Button" BasedOn="{StaticResource PanelPressButtonStyle}">
+      <Setter Property="Height" Value="36" />
+      <Setter Property="MinWidth" Value="104" />
+      <Setter Property="Padding" Value="16,0" />
+      <Setter Property="Foreground" Value="{StaticResource PanelTextBrush}" />
+      <Setter Property="Background" Value="#1A2030" />
+      <Setter Property="BorderBrush" Value="{StaticResource PanelBorderBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="Cursor" Value="Hand" />
+      <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Button">
+            <Border x:Name="ButtonBorder"
+                    Padding="{TemplateBinding Padding}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    CornerRadius="7">
+              <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="ButtonBorder" Property="Background" Value="#252C3C" />
+                <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="#56617A" />
+              </Trigger>
+              <Trigger Property="IsKeyboardFocused" Value="True">
+                <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="{StaticResource PanelAccentBrush}" />
+                <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="2" />
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <Style x:Key="EndTaskDialogDestructiveButtonStyle" TargetType="Button" BasedOn="{StaticResource EndTaskDialogButtonStyle}">
+      <Setter Property="Foreground" Value="#FFE8EA" />
+      <Setter Property="Background" Value="#A32B3A" />
+      <Setter Property="BorderBrush" Value="#C94A59" />
+      <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+          <Setter Property="Background" Value="#BC3546" />
+          <Setter Property="BorderBrush" Value="#E05B69" />
+        </Trigger>
+      </Style.Triggers>
+    </Style>
+  </Window.Resources>
+
+  <Border Background="{StaticResource PanelChromeBrush}"
+          BorderBrush="{StaticResource PanelBorderBrush}"
+          BorderThickness="1"
+          CornerRadius="12">
+    <Grid ClipToBounds="True">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="48" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="64" />
+      </Grid.RowDefinitions>
+
+      <Border Grid.Row="0"
+              BorderBrush="{StaticResource PanelBorderSubtleBrush}"
+              BorderThickness="0,0,0,1"
+              CornerRadius="12,12,0,0"
+              MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+        <Grid Margin="14,0,10,0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <Border Width="28" Height="28" Background="{StaticResource PanelAccentTintBrush}" CornerRadius="7">
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe Fluent Icons"
+                       FontSize="14"
+                       Foreground="{StaticResource PanelAccentBrush}"
+                       Text="&#xF120;" />
+          </Border>
+          <TextBlock Grid.Column="1"
+                     Margin="10,0,0,0"
+                     VerticalAlignment="Center"
+                     FontSize="14"
+                     FontWeight="SemiBold"
+                     Text="End task?" />
+          <Button Grid.Column="2"
+                  AutomationProperties.Name="Close end task confirmation"
+                  Width="30"
+                  MinWidth="30"
+                  Height="30"
+                  Padding="0"
+                  Background="Transparent"
+                  BorderThickness="0"
+                  Style="{StaticResource EndTaskDialogButtonStyle}"
+                  IsCancel="True"
+                  Click="CancelButton_Click">
+            <TextBlock FontFamily="Segoe Fluent Icons" FontSize="12" Text="&#xE8BB;" />
+          </Button>
+        </Grid>
+      </Border>
+
+      <Grid Grid.Row="1" Margin="20,20,20,18">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="46" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border Width="38"
+                Height="38"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#3A2220"
+                BorderBrush="#70413B"
+                BorderThickness="1"
+                CornerRadius="10">
+          <TextBlock HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontFamily="Segoe Fluent Icons"
+                     FontSize="18"
+                     Foreground="#FFB16A"
+                     Text="&#xE7BA;" />
+        </Border>
+        <StackPanel Grid.Column="1">
+          <TextBlock x:Name="ProcessNameText"
+                     FontSize="16"
+                     FontWeight="SemiBold"
+                     TextTrimming="CharacterEllipsis" />
+          <TextBlock x:Name="ProcessIdText"
+                     Margin="0,3,0,0"
+                     FontSize="10.5"
+                     Foreground="{StaticResource PanelMutedTextBrush}" />
+          <TextBlock Margin="0,14,0,0"
+                     FontSize="12"
+                     LineHeight="18"
+                     TextWrapping="Wrap"
+                     Text="Quick Panel will ask Windows to stop this process immediately." />
+          <TextBlock Margin="0,7,0,0"
+                     FontSize="11"
+                     LineHeight="17"
+                     TextWrapping="Wrap"
+                     Foreground="#FFB7BE"
+                     Text="Unsaved work in this process may be lost." />
+        </StackPanel>
+      </Grid>
+
+      <Border Grid.Row="2"
+              Padding="16,0"
+              Background="#0F141E"
+              BorderBrush="{StaticResource PanelBorderSubtleBrush}"
+              BorderThickness="0,1,0,0"
+              CornerRadius="0,0,12,12">
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+          <Button x:Name="CancelButton"
+                  AutomationProperties.Name="Cancel ending task"
+                  Margin="0,0,8,0"
+                  Style="{StaticResource EndTaskDialogButtonStyle}"
+                  Content="Cancel"
+                  IsDefault="True"
+                  IsCancel="True"
+                  Click="CancelButton_Click" />
+          <Button AutomationProperties.Name="Confirm end task"
+                  Style="{StaticResource EndTaskDialogDestructiveButtonStyle}"
+                  Content="End task"
+                  Click="ConfirmButton_Click" />
+        </StackPanel>
+      </Border>
+    </Grid>
+  </Border>
+</Window>

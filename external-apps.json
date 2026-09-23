@@ -1,0 +1,42 @@
+[
+  {
+    "id": "native:codex",
+    "displayName": "Codex App",
+    "icon": "auto",
+    "launchKind": "StartApp",
+    "startAppNameMatch": "Codex",
+    "processName": "Codex",
+    "windowTitleMatch": "Codex",
+    "windowClassName": "Chrome_WidgetWin_1",
+    "launchTimeoutMs": 20000,
+    "launchAutomatically": true,
+    "terminateOnPanelClose": false,
+    "preferredDockingBehavior": "Reparent",
+    "startupDelayMs": 0,
+    "restoreOriginalWindowOnUndock": true,
+    "minimumCandidateScore": 60,
+    "requireRenderedSurface": true,
+    "contentTopOffsetAt96Dpi": 36
+  },
+  {
+    "id": "native:whatsapp",
+    "displayName": "WhatsApp",
+    "icon": "auto",
+    "launchKind": "StartApp",
+    "startAppNameMatch": "WhatsApp",
+    "processName": "WhatsApp",
+    "alternativeProcessNames": [
+      "WhatsAppDesktop"
+    ],
+    "windowTitleRegex": "(^|\\s)WhatsApp($|\\s)",
+    "launchTimeoutMs": 30000,
+    "launchAutomatically": true,
+    "terminateOnPanelClose": false,
+    "preferredDockingBehavior": "Reparent",
+    "startupDelayMs": 500,
+    "restoreOriginalWindowOnUndock": true,
+    "minimumCandidateScore": 55,
+    "requireRenderedSurface": false,
+    "contentTopOffsetAt96Dpi": 0
+  }
+]

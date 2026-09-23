@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - run: dotnet restore QuickPanel.sln
+      - run: dotnet build QuickPanel.sln --configuration Release --no-restore
+      - run: dotnet run --project tests\QuickPanel.Tests.csproj --configuration Release --no-build
+      - shell: pwsh
+        run: |
+          .\tests\profile-data-safety.tests.ps1
+          .\tests\public-release-safety.tests.ps1
+          .\tests\capture-updater-evidence.tests.ps1

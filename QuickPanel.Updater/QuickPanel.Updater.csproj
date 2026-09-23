@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>QuickPanel.Updater</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QuickPanel.Updater.Core\QuickPanel.Updater.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\QuickPanel\Services\ProfileMigrationModels.cs" Link="Shared\ProfileMigrationModels.cs" />
+    <Compile Include="..\QuickPanel\Services\PhysicalDirectoryResolver.cs" Link="Shared\PhysicalDirectoryResolver.cs" />
+    <Compile Include="..\QuickPanel\Services\PortableDataPaths.cs" Link="Shared\PortableDataPaths.cs" />
+    <Compile Include="..\QuickPanel\Services\PortableUpdatePathSafety.cs" Link="Shared\PortableUpdatePathSafety.cs" />
+    <Compile Include="..\QuickPanel\Services\ReleasePayloadPolicy.cs" Link="Shared\ReleasePayloadPolicy.cs" />
+  </ItemGroup>
+</Project>

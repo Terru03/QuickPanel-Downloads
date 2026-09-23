@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl x:Class="QuickPanel.Views.BrowserTabView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf" Background="{StaticResource PanelBackgroundBrush}" ClipToBounds="True" SnapsToDevicePixels="True" xmlns:views="clr-namespace:QuickPanel.Views;assembly=QuickPanel">
+  <UserControl.Resources>
+    <Style x:Key="ErrorActionButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource PanelPressButtonStyle}">
+      <Setter Property="Height" Value="28" />
+      <Setter Property="Padding" Value="12,0" />
+      <Setter Property="Margin" Value="4,0" />
+      <Setter Property="Foreground" Value="{StaticResource PanelTextBrush}" />
+      <Setter Property="Background" Value="#1E2230" />
+      <Setter Property="BorderBrush" Value="{StaticResource PanelBorderSubtleBrush}" />
+      <Setter Property="BorderThickness" Value="1" />
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="Cursor" Value="Hand" />
+    </Style>
+  </UserControl.Resources>
+  <Grid ClipToBounds="True" SnapsToDevicePixels="True">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0" ClipToBounds="True" SnapsToDevicePixels="True">
+      <wv2:WebView2 Name="Browser" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DefaultBackgroundColor="#111318" NavigationStarting="Browser_NavigationStarting" NavigationCompleted="Browser_NavigationCompleted" />
+      <Border Name="LoadingOverlay" Background="{StaticResource PanelBackgroundBrush}">
+        <StackPanel MaxWidth="360" Margin="22" HorizontalAlignment="Center" VerticalAlignment="Center">
+          <ProgressBar Name="LoadingProgress" Width="120" Height="2" IsIndeterminate="True" Foreground="{StaticResource PanelAccentBrush}" Background="#1E2230" BorderThickness="0" />
+          <TextBlock Name="LoadingTitle" Margin="0,12,0,0" HorizontalAlignment="Center" TextAlignment="Center" FontSize="13" FontWeight="SemiBold" Foreground="{StaticResource PanelTextBrush}" Text="Loading" />
+          <TextBlock Name="LoadingText" Margin="0,7,0,0" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="12" Foreground="{StaticResource PanelMutedTextBrush}" Text="Loading..." />
+          <StackPanel Name="ErrorActionsPanel" Margin="0,16,0,0" HorizontalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed">
+            <Button Content="Retry" ToolTip="Reload current tab (Ctrl+R / F5)" Style="{StaticResource ErrorActionButtonStyle}" Click="RetryButton_Click" />
+            <Button Content="Open externally" ToolTip="Open current URL in default browser" Style="{StaticResource ErrorActionButtonStyle}" Click="OpenExternalButton_Click" />
+            <Button Content="Copy URL" ToolTip="Copy current URL" Style="{StaticResource ErrorActionButtonStyle}" Click="CopyUrlButton_Click" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+    </Grid>
+  </Grid>
+</UserControl>
