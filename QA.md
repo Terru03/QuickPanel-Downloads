@@ -20,6 +20,7 @@ Record the machine, Windows build, DPI, antivirus state, package SHA-256, and ex
 - [ ] Search text files in the extracted ZIP for the Windows user name, user profile path, repository checkout path, email addresses, and private repository URLs.
 - [ ] Keep diagnostic evidence in a private per-user directory; review and redact it before sharing.
 - [ ] Capture any public screenshot from a fresh profile with no personal tabs, accounts, paths, notifications, or browser history.
+- [ ] Complete the [2.5.0 media checklist](docs/release-media-2.5.0.md): capture the final signed build, review every image or video frame, and include working media links in the release notes.
 - [ ] Public upload selection names exactly the ZIP, `version.json`, and `SHA256SUMS.txt`.
 
 ## Existing install bridge

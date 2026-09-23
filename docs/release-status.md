@@ -14,6 +14,8 @@ claim that the app has completed release acceptance.
   the 2.5.0 rename/migration, including browser-session retention.
 - Interruption, rollback, reapply, shortcut, and restart acceptance.
 - Docking restoration and supported Windows/DPI checks.
+- Genuine screenshots of the final version, reviewed for privacy and included
+  in the release notes; see the [2.5.0 media checklist](release-media-2.5.0.md).
 - Anonymous downloads with matching checksums and an unauthenticated update.
 
 Automated build, safety, and packaged-worker checks support these gates; they

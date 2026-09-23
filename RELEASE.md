@@ -64,6 +64,13 @@ reports to make that command run here.
 
 ## Publish and read back
 
+Include genuine screenshots of the final signed version in the release body,
+with an optional short demonstration. Follow the
+[2.5.0 media checklist](docs/release-media-2.5.0.md) and keep raw captures and
+private capture notes out of public uploads. Media files are reviewed separately
+and linked from their committed source location; the binary asset set stays the
+same.
+
 After signing and acceptance, publish only the reviewed three-file set to this
 repository's Releases. Fetch every file without credentials, compare hashes, and
 confirm the updater checks/downloads without GitHub CLI. Preserve recovery

@@ -6,6 +6,14 @@ The instructions below apply after the verified binary release is published.
 Quick Panel is a compact Windows workspace for websites, utilities, hardware
 telemetry, and supported docked desktop applications.
 
+## Screenshots and demonstration
+
+Capture pending. Before publishing this draft as a release, replace this paragraph
+with the reviewed workspace, add-website, and browser-profile screenshots from
+the final signed 2.5.0 package. Include the short demo if available. Follow the
+[media checklist](release-media-2.5.0.md); do not publish this draft as finished
+release notes while the captures are missing.
+
 ## Download
 
 Download `QuickPanel-2.5.0-win-x64.zip`, compare its SHA-256 value with
