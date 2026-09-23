@@ -212,7 +212,11 @@ if (-not [string]::IsNullOrWhiteSpace($ReleaseNotesUrl) -and $ReleaseNotesUrl -c
 
 $publishRoot = Join-Path $repoRoot "artifacts\publish"
 $publishDir = Join-Path $publishRoot ("$Version-$Runtime-" + [Guid]::NewGuid().ToString('N'))
-$outputDirFull = Join-Path $repoRoot $OutputDirectory
+$outputDirFull = if ([IO.Path]::IsPathRooted($OutputDirectory)) {
+    [IO.Path]::GetFullPath($OutputDirectory)
+} else {
+    [IO.Path]::GetFullPath((Join-Path $repoRoot $OutputDirectory))
+}
 $zipName = "QuickPanel-$Version-$Runtime.zip"
 $zipPath = Join-Path $outputDirFull $zipName
 $manifestPath = Join-Path $outputDirFull "version.json"
@@ -244,6 +248,11 @@ try {
         -p:PublishSingleFile=false `
         --output $updaterPublishDir
     if ($LASTEXITCODE -ne 0) { throw 'Self-contained updater publish failed.' }
+
+    # The source README describes source-preview status. Ship stable installation
+    # help so publishing a signed ZIP does not ship an obsolete preview banner.
+    Copy-Item -LiteralPath (Join-Path $repoRoot 'docs/package-readme.md') `
+        -Destination (Join-Path $publishDir 'README.md') -Force
 
     $signingStatus = Invoke-OptionalSigning `
         -PublishDirectory $publishDir `

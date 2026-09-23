@@ -1,15 +1,17 @@
 # Quick Panel 2.5.0 screenshots and demonstration
 
-Status: capture pending. No release screenshots or recording have been produced
-yet. Use this checklist with the final signed 2.5.0 package before launch.
+Status: the [workspace screenshot](media/2.5.0/README.md) has been captured from
+the real 2.5.0 candidate in a disposable Windows VM. Other function captures
+remain pending. No complete recording is claimed.
 
 ## Capture the actual release
 
 Use a disposable Windows user or VM with a fresh Quick Panel profile. Extract
-the complete final ZIP and verify its SHA-256 and application/updater signatures.
-Record the package hash, executable version, and source revision in private
-capture notes. An earlier build, a rendering, or a generated mockup is not a
-screenshot of the released product.
+the complete ZIP and verify its SHA-256. Record the package hash, executable
+version, source revision, and signing status in private capture notes. Captures
+may precede signing on a separate PC, provided the shipped application source
+and UI match; verify the final signatures separately. An earlier version, a
+rendering, or a generated mockup is not a screenshot of the released product.
 
 The current app uses the Windows account's canonical profile and can migrate
 legacy data at startup. It has no separate demo-profile switch. Do not rename,
@@ -22,13 +24,14 @@ Codex Usage, and other views that can show host or account information.
 
 ## Required screenshots
 
-Capture at least these three PNG images at a readable, consistent window size:
+Capture these three screens at a readable, consistent window size. Preserve the
+native image format (the current capture tool returns JPEG):
 
 | Filename | Real UI to show | Caption |
 | --- | --- | --- |
-| `quick-panel-2.5.0-workspace.png` | Main panel with a few public website tabs and one loaded page | Your everyday websites in one Windows panel. |
-| `quick-panel-2.5.0-add-website.png` | Add website dialog with a harmless public URL and generic tab name | Add a website and make it part of your workspace. |
-| `quick-panel-2.5.0-browser-profiles.png` | Actual profile selection UI using synthetic Work and Personal names | Organize separate browser sessions with named profiles. |
+| `quick-panel-2.5.0-workspace.jpg` | Main panel with public website tabs and one loaded page | Your everyday websites in one Windows panel. |
+| `quick-panel-2.5.0-add-website.jpg` | Add website dialog with a harmless public URL and generic tab name | Add a website and make it part of your workspace. |
+| `quick-panel-2.5.0-browser-profiles.jpg` | Actual profile selection UI using synthetic Work and Personal names | Organize separate browser sessions with named profiles. |
 
 Capture the version display privately to establish which build is running. Use
 only a clean version crop publicly if it contains no install path or personal
@@ -66,5 +69,6 @@ claim; label cuts or edits where they would otherwise mislead.
   `SHA256SUMS.txt`. Release-body media references the separately reviewed source
   media, so raw capture folders are never swept into a package upload.
 
-If the shipped build changes after capture, repeat the captures against the
-final package and update the private provenance record before publishing.
+If the shipped UI or application behavior changes after capture, repeat the
+affected captures and update the provenance record. Signing alone does not
+require recreating otherwise identical UI screenshots.

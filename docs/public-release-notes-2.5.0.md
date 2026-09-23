@@ -1,18 +1,20 @@
-# Quick Panel 2.5.0
+<!-- SOURCE_PREVIEW_NOTICE_START -->
+**Release body template — no public binary has been released.** The signing
+handoff removes this notice and pins media URLs to the reviewed commit. Signing
+and final GUI acceptance are required before publication.
+<!-- SOURCE_PREVIEW_NOTICE_END -->
 
-**Draft — not released.** Signing and real GUI acceptance remain pending.
-The instructions below apply after the verified binary release is published.
+# Quick Panel 2.5.0
 
 Quick Panel is a compact Windows workspace for websites, utilities, hardware
 telemetry, and supported docked desktop applications.
 
 ## Screenshots and demonstration
 
-Capture pending. Before publishing this draft as a release, replace this paragraph
-with the reviewed workspace, add-website, and browser-profile screenshots from
-the final signed 2.5.0 package. Include the short demo if available. Follow the
-[media checklist](release-media-2.5.0.md); do not publish this draft as finished
-release notes while the captures are missing.
+![Quick Panel 2.5.0 showing a signed-out website in its Windows panel](https://raw.githubusercontent.com/Terru03/QuickPanel-Downloads/{{SOURCE_COMMIT}}/docs/media/2.5.0/quick-panel-2.5.0-workspace.jpg)
+
+Genuine capture from the 2.5.0 candidate in a disposable Windows VM with a fresh
+profile, before signing. No generated product UI is used.
 
 ## Download
 
@@ -37,5 +39,7 @@ reserve redistribution rights. Quick Panel stores settings and
 browser state locally and does not include application telemetry or analytics.
 See the included `LICENSE`, `PRIVACY.md`, and `SUPPORT.md` files.
 
-This candidate is unsigned unless the release notes explicitly state that both
-application executables were Authenticode signed and verified before packaging.
+The release handoff signs and verifies the first-party application and updater
+binaries before packaging. Check the downloaded ZIP against `SHA256SUMS.txt`.
+A valid signature does not guarantee that Windows or antivirus software will
+never show a reputation warning.

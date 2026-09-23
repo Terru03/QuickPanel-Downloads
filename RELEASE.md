@@ -49,6 +49,9 @@ updater. The existing certificate-store path accepts
 certificates outside the repository. Signing precedes packaging and hashing.
 A signature does not guarantee absence of reputation or antivirus warnings.
 
+For personal-PC signing and a verified draft/publication handoff, follow
+[Sign and publish](docs/sign-and-release.md). Keys stay on the signing PC.
+
 ## Acceptance
 
 Complete [QA.md](QA.md) on a disposable Windows user or VM. Confirm clean launch,
@@ -64,7 +67,7 @@ reports to make that command run here.
 
 ## Publish and read back
 
-Include genuine screenshots of the final signed version in the release body,
+Include genuine screenshots of the reviewed release version in the release body,
 with an optional short demonstration. Follow the
 [2.5.0 media checklist](docs/release-media-2.5.0.md) and keep raw captures and
 private capture notes out of public uploads. Media files are reviewed separately

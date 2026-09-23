@@ -22,3 +22,4 @@ jobs:
           .\tests\profile-data-safety.tests.ps1
           .\tests\public-release-safety.tests.ps1
           .\tests\capture-updater-evidence.tests.ps1
+          .\tests\release-public.tests.ps1

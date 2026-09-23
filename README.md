@@ -19,8 +19,11 @@ initial default tabs include several AI services.
 
 ## Screenshot or demo
 
-A real demonstration from a fresh, signed-out test profile will accompany the
-public binary release. No generated image is presented as a product screenshot.
+![Quick Panel 2.5.0 with a signed-out website in its Windows panel](docs/media/2.5.0/quick-panel-2.5.0-workspace.jpg)
+
+Actual 2.5.0 candidate captured in a disposable Windows VM with a fresh profile.
+Signing and the remaining release checks are pending. See the
+[capture details](docs/media/2.5.0/README.md).
 
 ## Major features
 
