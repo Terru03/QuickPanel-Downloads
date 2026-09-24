@@ -2,6 +2,12 @@
 
 Your everyday tools, one shortcut away.
 
+**2.5.0 unsigned release.** Windows may show an unknown-publisher warning or
+block execution. This package has no trusted code-signing signature.
+Compare its ZIP SHA-256 with `SHA256SUMS.txt` from the official release page.
+Use a fresh Windows account or disposable VM; legacy upgrades are not yet
+approved. A different extraction folder does not isolate the app's profile.
+
 ## Start
 
 Extract the complete ZIP into a normal folder and open `QuickPanel.exe`. Keep
@@ -24,9 +30,10 @@ File Explorer uses a separate in-panel folder view.
 ## Settings and updates
 
 Settings includes startup, window behavior, update checks, and recovery options.
-Updates require access to the official public GitHub release. Before upgrading
-a legacy 2.4 installation, follow the compatibility-bridge instructions in the
-release notes. Retain existing settings, browser profiles, and recovery data.
+The default update source is the latest public GitHub release. Check the release
+page for version details. Do not replace a legacy 2.4 installation
+with this release; its complete GUI upgrade chain is still unverified.
+Retain existing settings, browser profiles, and recovery data.
 
 ## Privacy and support
 

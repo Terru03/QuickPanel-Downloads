@@ -1,45 +1,48 @@
-<!-- SOURCE_PREVIEW_NOTICE_START -->
-**Release body template — no public binary has been released.** The signing
-handoff removes this notice and pins media URLs to the reviewed commit. Signing
-and final GUI acceptance are required before publication.
-<!-- SOURCE_PREVIEW_NOTICE_END -->
+# Quick Panel 2.5.0 — unsigned release
 
-# Quick Panel 2.5.0
+Keep everyday websites and utilities in one compact Windows panel. Press
+**Ctrl + Alt + G** to bring the workspace into view or hide it again.
 
-Quick Panel is a compact Windows workspace for websites, utilities, hardware
-telemetry, and supported docked desktop applications.
+**This free Windows x64 release is unsigned.** Windows may show an
+unknown-publisher warning or block execution. No trusted signing identity is
+claimed. Start with a fresh Windows account or disposable VM; this is not an
+approved upgrade for existing 2.4 installations.
 
-## Screenshots and demonstration
+## Download and run
 
-![Quick Panel 2.5.0 showing a signed-out website in its Windows panel](https://raw.githubusercontent.com/Terru03/QuickPanel-Downloads/{{SOURCE_COMMIT}}/docs/media/2.5.0/quick-panel-2.5.0-workspace.jpg)
+1. Download `QuickPanel-2.5.0-win-x64.zip` and `SHA256SUMS.txt` below.
+2. Compare the ZIP hash using `Get-FileHash .\QuickPanel-2.5.0-win-x64.zip -Algorithm SHA256`.
+3. Extract the complete ZIP into a dedicated folder and run `QuickPanel.exe`.
 
-Genuine capture from the 2.5.0 candidate in a disposable Windows VM with a fresh
-profile, before signing. No generated product UI is used.
+The .NET runtime is included. Microsoft Edge WebView2 Runtime is required.
+Checksums verify download integrity; they do not replace code signing.
 
-## Download
+## See the app
 
-Download `QuickPanel-2.5.0-win-x64.zip`, compare its SHA-256 value with
-`SHA256SUMS.txt`, extract the complete ZIP, and run `QuickPanel.exe`.
+![Quick Panel workspace with a signed-out website](https://raw.githubusercontent.com/Terru03/QuickPanel-Downloads/{{SOURCE_COMMIT}}/docs/media/2.5.0/quick-panel-2.5.0-workspace.jpg)
 
-The package is self-contained for Windows x64. Microsoft Edge WebView2 Runtime
-is required and is normally included with current Windows installations.
+![Add a website tab with a name, URL, and browsing profile](https://raw.githubusercontent.com/Terru03/QuickPanel-Downloads/{{SOURCE_COMMIT}}/docs/media/2.5.0/quick-panel-2.5.0-add-website.jpg)
 
-## Existing private installations
+![Choose the default browsing profile or create a new profile](https://raw.githubusercontent.com/Terru03/QuickPanel-Downloads/{{SOURCE_COMMIT}}/docs/media/2.5.0/quick-panel-2.5.0-browser-profiles.jpg)
 
-Install the private 2.4.13 bridge before using the in-app updater to move from
-the old executable name to Quick Panel 2.5.0. The upgrade copies and verifies
-the established profile in `%LOCALAPPDATA%\QuickPanel\data` and retains the old
-profile as recovery material.
+Genuine 2.5.0 VM captures using synthetic demonstration inputs. The gallery
+shows real controls; it is not a claim of complete workflow or session-isolation
+testing. No generated product UI or edited demonstration video is used.
 
-## Terms and privacy
+## Release scope
 
-The reviewed source is publicly viewable under reserved-rights terms, not an
-open-source license. The binary terms permit use on your own devices and
-reserve redistribution rights. Quick Panel stores settings and
-browser state locally and does not include application telemetry or analytics.
-See the included `LICENSE`, `PRIVACY.md`, and `SUPPORT.md` files.
+Build, automated safety, package privacy, checksum, and packaged update/profile
+preservation checks support this release. Full GUI upgrade/rollback, sign-in
+startup, docking compatibility, website/profile workflows, and the Windows/DPI
+matrix remain incomplete. A separate extraction folder does not isolate legacy
+profile migration; use a fresh Windows account. Publishing this normal GitHub
+release does not establish legacy GUI upgrade support. A compatibility bridge
+for existing 2.4 installations is not being announced with it.
 
-The release handoff signs and verifies the first-party application and updater
-binaries before packaging. Check the downloaded ZIP against `SHA256SUMS.txt`.
-A valid signature does not guarantee that Windows or antivirus software will
-never show a reputation warning.
+The source is publicly viewable under reserved-rights terms. Official binaries
+may be used on your own devices under the included license. Settings and browser
+state are stored locally; see `PRIVACY.md`, `LICENSE`, and `SUPPORT.md`.
+
+[Report a reproducible issue](https://github.com/Terru03/QuickPanel-Downloads/issues)
+with steps and the app version. Keep profiles, cookies, tokens, and personal
+diagnostics out of public reports.

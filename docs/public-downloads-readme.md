@@ -1,14 +1,14 @@
 # Quick Panel downloads
 
-This repository contains a reviewed public source snapshot and will distribute
-official Windows binaries after release acceptance. The source has reserved-rights
+This repository contains a reviewed public source snapshot and the official
+unsigned Windows release. The source has reserved-rights
 terms and is not open-source licensed.
 
-**Current status: source preview. No signed public binary is available yet.**
-See [release status](release-status.md). The instructions below apply only once
-the verified binary release is published.
+**Current status: 2.5.0 unsigned release for fresh Windows accounts.**
+Windows may show an unknown-publisher warning or block execution. See
+[release status](release-status.md) for the remaining GUI acceptance work.
 
-Download the latest ZIP from [Releases](../../releases/latest), verify it with
+Download the ZIP from the [2.5.0 release release](https://github.com/Terru03/QuickPanel-Downloads/releases/tag/v2.5.0), verify it with
 the published `SHA256SUMS.txt`, extract the complete ZIP, and run
 `QuickPanel.exe`.
 

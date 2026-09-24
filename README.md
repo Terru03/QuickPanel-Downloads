@@ -2,10 +2,11 @@
 
 **Your everyday tools, one shortcut away.**
 
-> **Source preview — Windows binary release pending.** This repository contains
-> the 2.5.0 candidate source. A signed public download is not available yet.
-> Signing and clean-user GUI acceptance remain release gates.
-> See [release status](docs/release-status.md).
+> **Quick Panel 2.5.0 — unsigned release for Windows x64.**
+> [Download the ZIP](https://github.com/Terru03/QuickPanel-Downloads/releases/download/v2.5.0/QuickPanel-2.5.0-win-x64.zip) ·
+> [Release notes and checksums](https://github.com/Terru03/QuickPanel-Downloads/releases/tag/v2.5.0)
+> Windows may show an unknown-publisher warning or block this unsigned app.
+> Start with a fresh Windows account; legacy upgrades are not yet approved.
 
 ## What is Quick Panel?
 
@@ -21,9 +22,9 @@ initial default tabs include several AI services.
 
 ![Quick Panel 2.5.0 with a signed-out website in its Windows panel](docs/media/2.5.0/quick-panel-2.5.0-workspace.jpg)
 
-Actual 2.5.0 candidate captured in a disposable Windows VM with a fresh profile.
-Signing and the remaining release checks are pending. See the
-[capture details](docs/media/2.5.0/README.md).
+Actual 2.5.0 application captured in a disposable Windows VM. See the
+[screenshot gallery](docs/media/2.5.0/README.md) for the Add tab dialog and browser
+profile choices, and [release status](docs/release-status.md) for verification limits.
 
 ## Major features
 
@@ -41,12 +42,23 @@ varies by application; see [compatibility notes](EXTERNAL-APPS.md).
 
 ## Download and installation
 
-**There is no public binary release yet.** Development builds and workflow
-artifacts are not signed, generally available releases.
+Download `QuickPanel-2.5.0-win-x64.zip` and `SHA256SUMS.txt` from the
+[2.5.0 release release](https://github.com/Terru03/QuickPanel-Downloads/releases/tag/v2.5.0).
+The package includes .NET and requires Microsoft Edge WebView2 Runtime.
 
-The planned package is `QuickPanel-2.5.0-win-x64.zip`: a self-contained Windows
-x64 application requiring Microsoft Edge WebView2 Runtime. Supported Windows
-versions and tested environments will be recorded with the release.
+Compare the ZIP's hash with the ZIP entry in `SHA256SUMS.txt`:
+
+```powershell
+Get-FileHash .\QuickPanel-2.5.0-win-x64.zip -Algorithm SHA256
+```
+
+Extract the complete ZIP into a dedicated folder, keep its files together, and
+open `QuickPanel.exe`. This free release is unsigned; a checksum checks download
+integrity and does not establish a trusted publisher identity.
+
+Use a fresh Windows account or disposable VM for this release. Do not replace
+an existing 2.4 installation or assume that extracting to another folder isolates
+its profile. See the [known limitations](docs/release-status.md).
 
 Developers can build using the commands below. Run development builds on a
 **disposable Windows user or VM**: startup can migrate a legacy profile. Do not
@@ -89,13 +101,14 @@ and other unsupported windows are excluded. See [EXTERNAL-APPS.md](EXTERNAL-APPS
 
 ## Updates
 
-The public updater checks this repository's future GitHub Releases without
-GitHub CLI or private credentials. Until the first release exists, its default
-update check has no published version to retrieve.
+The public updater checks this repository's latest GitHub release without
+GitHub CLI or private credentials. Version 2.5.0 is also available as a direct
+ZIP download. Publishing release metadata does not prove the complete old-version
+GUI upgrade path.
 
-Legacy installations need the verified 2.4.13 compatibility bridge before an
-in-app upgrade to the renamed 2.5.0 package. That bridge is still pending release
-acceptance. Retain existing settings, browser profiles, and recovery material.
+The planned 2.4.13 compatibility bridge is still pending GUI acceptance.
+Do not replace a legacy installation with this release. Retain existing
+settings, browser profiles, and recovery material.
 
 ## Privacy and local data
 

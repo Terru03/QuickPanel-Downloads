@@ -1,11 +1,18 @@
 # Quick Panel 2.5.0 captures
 
 These are genuine captures from a disposable Windows VM, using a fresh profile
-and the 2.5.0 candidate. The workspace is signed out. The signing handoff will
-run on the publisher's PC; these images do not imply a signed binary has already
-been released.
+and the 2.5.0 application. The workspace is signed out. The public release is
+unsigned; these images do not imply a trusted signing identity.
 
 ![Quick Panel 2.5.0 showing a signed-out website inside its Windows panel](quick-panel-2.5.0-workspace.jpg)
+
+![Add tab dialog with the synthetic name Wikipedia](quick-panel-2.5.0-add-website.jpg)
+
+![Browsing profile menu showing Default and Create new profile](quick-panel-2.5.0-browser-profiles.jpg)
+
+The dialog captures show the actual controls and profile menu. They do not
+demonstrate a completed website addition or session isolation. Only the native
+dialog images are included; unrelated background panels are excluded.
 
 ## Provenance
 
@@ -16,9 +23,9 @@ been released.
 - The native capture is JPEG. No generated UI, account content, or retouched
   controls are presented as product behavior.
 
-The add-website, profile, utility, and docking captures are still pending while
-the VM display is unavailable. No complete demo recording is claimed.
+Workspace, add-website, and profile-menu captures are included. Utility and
+docking captures and a complete demo recording remain pending.
 
-Before binary publication, verify that the signed package uses the reviewed
+Before binary publication, verify that the package uses the reviewed
 application source shown here. If its UI or behavior changes, recapture the
 affected screens. Keep raw diagnostics and local paths private.

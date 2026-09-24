@@ -1,5 +1,10 @@
 # Sign and publish Quick Panel from your Windows PC
 
+The 2.5.0 release uses the owner-approved **unsigned release** route. This guide
+and `release-public.ps1` remain available for a future signed version; they are
+not needed to download or run 2.5.0. The helper deliberately refuses to replace
+an existing public release. Use a new reviewed version for a later signed release.
+
 The signing key stays on your PC. `scripts/release-public.ps1` builds from an
 explicit reviewed commit, verifies trusted timestamped signatures, and uploads
 only the ZIP, version manifest, and checksum file to `Terru03/QuickPanel-Downloads`.

@@ -1,16 +1,17 @@
 # Quick Panel 2.5.0 screenshots and demonstration
 
-Status: the [workspace screenshot](media/2.5.0/README.md) has been captured from
-the real 2.5.0 candidate in a disposable Windows VM. Other function captures
-remain pending. No complete recording is claimed.
+Status: the [gallery](media/2.5.0/README.md) includes the workspace, Add tab dialog,
+and profile menu from the real 2.5.0 application in a disposable Windows VM.
+The current images show controls, not completed website/profile workflows.
+Utility/docking captures and a complete recording remain pending.
 
 ## Capture the actual release
 
 Use a disposable Windows user or VM with a fresh Quick Panel profile. Extract
 the complete ZIP and verify its SHA-256. Record the package hash, executable
 version, source revision, and signing status in private capture notes. Captures
-may precede signing on a separate PC, provided the shipped application source
-and UI match; verify the final signatures separately. An earlier version, a
+may precede packaging, provided the shipped application source and UI match.
+The 2.5.0 public release is explicitly unsigned. An earlier version, a
 rendering, or a generated mockup is not a screenshot of the released product.
 
 The current app uses the Windows account's canonical profile and can migrate
@@ -49,7 +50,7 @@ Record the actual interactions, with no microphone or desktop audio required:
    Ctrl + Alt + G on the clean desktop.
 
 Save as `quick-panel-2.5.0-demo.mp4`. A short GIF may be used as a secondary
-preview, but retain a readable MP4. Never speed up loading to imply a performance
+release, but retain a readable MP4. Never speed up loading to imply a performance
 claim; label cuts or edits where they would otherwise mislead.
 
 ## Review and include with the release

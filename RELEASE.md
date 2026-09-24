@@ -1,7 +1,7 @@
 # Quick Panel release process
 
-The version is stored in `Directory.Build.props`. This is the 2.5.0 source preview.
-Public binary release is pending [these gates](docs/release-status.md).
+The version is stored in `Directory.Build.props`. Version 2.5.0 is an explicitly
+unsigned public release with [documented verification limits](docs/release-status.md).
 
 ## Build and test
 
@@ -30,8 +30,10 @@ The app's public updater needs no private credentials.
   -ReleaseNotesUrl https://github.com/Terru03/QuickPanel-Downloads/releases/tag/v2.5.0
 ```
 
-Without signing inputs this produces an **unsigned local candidate**, not an
-approved public release. Keep it local or in private verification storage.
+Without signing inputs this produces an **unsigned candidate**. For the approved
+2.5.0 release, verify the exact package and publish it as a normal GitHub release
+with an unsigned notice and fresh-account guidance. Do not claim full GUI acceptance or a trusted
+signature. Keep candidates private until privacy and package checks pass.
 The default `artifacts/release` output contains exactly:
 
 - `QuickPanel-2.5.0-win-x64.zip`
@@ -43,7 +45,8 @@ builds, certificates, or files selected with a broad wildcard.
 
 ## Signing
 
-Use a production code-signing identity and verify the application and dedicated
+Signing is optional for the unsigned release. For a future signed version,
+use a production code-signing identity and verify the application and dedicated
 updater. The existing certificate-store path accepts
 `-SigningCertificateThumbprint` and optionally `-SignToolPath`. Keep keys and
 certificates outside the repository. Signing precedes packaging and hashing.
@@ -74,10 +77,13 @@ private capture notes out of public uploads. Media files are reviewed separately
 and linked from their committed source location; the binary asset set stays the
 same.
 
-After signing and acceptance, publish only the reviewed three-file set to this
-repository's Releases. Fetch every file without credentials, compare hashes, and
-confirm the updater checks/downloads without GitHub CLI. Preserve recovery
-material until the upgrade is proven on a separate Windows user or machine.
+After the applicable acceptance and privacy checks, publish only the reviewed
+three-file set to this repository's Releases. For 2.5.0 use the title
+`Quick Panel 2.5.0` and prominently state that the package is unsigned in the notes.
+Publish as a normal latest release in both repositories. Fetch every public file
+without credentials and compare hashes.
+The complete updater GUI route remains unverified; preserve recovery material
+and do not advertise a legacy upgrade until it is proven separately.
 
 Both Actions workflows are manual-only. They build artifacts; they do not create
 GitHub Releases or change repository visibility.

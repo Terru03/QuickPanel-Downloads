@@ -1,8 +1,8 @@
 # Quick Panel support
 
-**Source preview:** no signed public binary has been released yet. Installation
-instructions below describe the planned verified package. See
-[release status](docs/release-status.md) before using a development build.
+**2.5.0 unsigned release:** use a fresh Windows account or disposable VM.
+The full GUI upgrade and compatibility checks remain incomplete. See
+[release status](https://github.com/Terru03/QuickPanel-Downloads/blob/main/docs/release-status.md).
 
 Report non-sensitive bugs at https://github.com/Terru03/QuickPanel-Downloads/issues.
 For confidential vulnerability reports, use `SECURITY.md`.
@@ -21,17 +21,18 @@ and restart Quick Panel.
 
 ## SmartScreen and antivirus warnings
 
-Unsigned development builds can still trigger Microsoft Defender SmartScreen or endpoint controls. A physical-machine release is endpoint-ready only when both `QuickPanel.exe` and `UpdaterRuntime\QuickPanel.Updater.exe` have valid trusted Authenticode signatures. Windows can show
-**Windows protected your PC** because the binary has not built reputation. Verify
+This release is unsigned and can trigger Microsoft Defender SmartScreen or
+endpoint controls, including an unknown-publisher warning or execution block.
+Windows may show **Windows protected your PC**. Verify
 the ZIP SHA-256 against `SHA256SUMS.txt`, obtain the package from the expected
 location, and scan it normally. Do not disable SmartScreen globally or use a
 bypass script.
 
 Bitdefender or another antivirus product may flag an uncommon unsigned build,
 startup shortcut, process inspection, hardware monitoring, or native window
-docking. Submit the exact ZIP to the vendor as a false positive and allowlist
-only the verified install and data folders if your security policy permits it.
-Do not exclude Downloads or an entire user profile.
+docking. Report the detection to the maintainer and follow your security
+policy. A detection has not been established as a false positive merely because
+the app is unsigned. Do not exclude Downloads or an entire user profile.
 
 ## Startup shortcut problems
 
@@ -47,14 +48,14 @@ hidden at sign-in; use `Ctrl + Alt + G` or the tray icon to show it.
 
 ## Update-check or download failures
 
-The default update source is the public Quick Panel downloads repository. Until
-the first binary release is published, it has no version available to retrieve.
-Updates should work without GitHub CLI or a GitHub sign-in. A custom HTTPS
-`version.json` URL can be configured in Settings.
+The default update source is this repository's latest GitHub release.
+Version 2.5.0 is published there and can also be downloaded manually. A custom
+HTTPS `version.json` URL is supported, but the complete legacy GUI updater route
+remains unverified. Download and checksum checks do not replace that testing.
 
-For an existing private installation that cannot reach the 2.4.13 bridge,
-ask the maintainer for the verified private repair path. The 2.4.13 bridge is
-required before applying the renamed package through the in-app updater.
+Do not use this release to replace an existing private 2.4 installation.
+The planned 2.4.13 compatibility bridge and full GUI upgrade chain remain
+unverified. Ask the maintainer about a legacy installation's recovery path.
 Keep `%LOCALAPPDATA%\AIQuickPanel\data` and its sibling `data-maintenance`
 directory while troubleshooting an upgrade.
 
